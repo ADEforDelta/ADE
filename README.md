@@ -1,4 +1,4 @@
-# ADE: Accurate, Inference-efficient, and Tunable Delta Compression for Task-specific Fine-tuned Foundation Models
+# <img src="assets/ade_emoji.png" height="32"> ADE: Accurate, Inference-efficient, and Tunable Delta Compression for Task-specific Fine-tuned Foundation Models
 
 This project is a PyTorch implementation of **"ADE: Accurate, Inference-efficient, and Tunable Delta Compression for Task-specific Fine-tuned Foundation Models"** (anonymous submission).
 
@@ -150,7 +150,7 @@ ADE/
 ├── README.md
 ├── requirements.txt
 ├── run.sh                    # demo: untuned and tuned ADE on one model
-├── assets/overview.png       # overview figure
+├── assets/                   # overview figure and logo
 ├── configs/                  # Table 1 configurations (alpha = 1/16)
 ├── src/
 │   ├── main.py               # pipeline: allocation, quantization, adaptation, evaluation

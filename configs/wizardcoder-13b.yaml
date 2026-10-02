@@ -1,0 +1,23 @@
+# Table 1, WizardCoder-Python-13B-V1.0, ADE: compression (I1 + I2) and light fold-in adaptation (I3).
+task: code                        # benchmark: MBPP (EvalPlus)
+base_model: codellama/CodeLlama-13b-Python-hf
+aligned_model: WizardLMTeam/WizardCoder-Python-13B-V1.0
+alpha: 0.0625                     # target compression ratio (1/16)
+# I1. output-aware capacity allocation
+calib_dataset: magicoder
+r_min: 384                        # minimum rank R_min per module (3 x G)
+alloc_kappa: 1.0                  # rank share proportional to S^kappa (1 = paper)
+# I3. light fold-in adaptation (gamma, rho)
+epochs: 1
+train_data: magicoder
+num_train_samples: 4000
+learning_rate: 3.0e-5
+weight_decay: 0.0
+warmup_ratio: 0.1
+max_grad_norm: 1.0
+batch_size: 1
+grad_accum: 6
+lambda_lm: 0.0
+lambda_kd: 0.0
+lambda_re: 3000
+kd_reduction: tokenmean           # KL summed over the sequence (batchmean) or averaged per token (tokenmean)

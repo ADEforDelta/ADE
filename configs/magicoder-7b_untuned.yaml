@@ -1,0 +1,11 @@
+# Table 1, Magicoder-S-CL-7B, ADE_-L: compression only (I1 + I2), no light fold-in adaptation.
+task: code                        # benchmark: MBPP (EvalPlus)
+base_model: codellama/CodeLlama-7b-Python-hf
+aligned_model: ise-uiuc/Magicoder-S-CL-7B
+alpha: 0.0625                     # target compression ratio (1/16)
+# I1. output-aware capacity allocation
+calib_dataset: magicoder
+r_min: 512                        # minimum rank R_min per module (4 x G)
+alloc_kappa: 1.0                  # rank share proportional to S^kappa (1 = paper)
+# I3. light fold-in adaptation (0 epochs = ADE_-L)
+epochs: 0

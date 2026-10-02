@@ -1,0 +1,11 @@
+# Table 1, WizardMath-13B-V1.0, ADE_-L: compression only (I1 + I2), no light fold-in adaptation.
+task: math                        # benchmark: GSM8K
+base_model: meta-llama/Llama-2-13b-hf
+aligned_model: WizardLMTeam/WizardMath-13B-V1.0
+alpha: 0.0625                     # target compression ratio (1/16)
+# I1. output-aware capacity allocation
+calib_dataset: metamath
+r_min: 384                        # minimum rank R_min per module (3 x G)
+alloc_kappa: 1.0                  # rank share proportional to S^kappa (1 = paper)
+# I3. light fold-in adaptation (0 epochs = ADE_-L)
+epochs: 0

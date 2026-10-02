@@ -1,0 +1,24 @@
+# Table 1, LLaVA-v1.5-13B, ADE: compression (I1 + I2) and light fold-in adaptation (I3).
+task: multimodal                  # benchmark: TextVQA
+base_model: lmsys/vicuna-13b-v1.5
+aligned_model: liuhaotian/llava-v1.5-13b
+llava_hf_model: llava-hf/llava-1.5-13b-hf
+alpha: 0.0625                     # target compression ratio (1/16)
+# I1. output-aware capacity allocation
+calib_dataset: alpaca
+r_min: 512                        # minimum rank R_min per module (4 x G)
+alloc_kappa: 1.0                  # rank share proportional to S^kappa (1 = paper)
+# I3. light fold-in adaptation (gamma, rho)
+epochs: 7
+train_data: alpaca
+num_train_samples: 5000
+learning_rate: 1.0e-3
+weight_decay: 0.0
+warmup_ratio: 0.1
+max_grad_norm: 1.0
+batch_size: 1
+grad_accum: 6
+lambda_lm: 0.1
+lambda_kd: 1.0
+lambda_re: 3000
+kd_reduction: batchmean           # KL summed over the sequence (batchmean) or averaged per token (tokenmean)

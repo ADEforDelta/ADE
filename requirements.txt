@@ -1,0 +1,14 @@
+torch==2.7.0
+transformers==4.53.2
+datasets==3.6.0
+accelerate==1.14.0
+evalplus==0.3.1
+ninja==1.13.2
+huggingface_hub==0.36.2
+safetensors==0.8.0
+sentencepiece==0.2.2
+protobuf==5.29.6
+pyyaml==6.0.3
+tqdm==4.70.1
+numpy==2.2.6
+Pillow==12.3.0

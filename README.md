@@ -8,6 +8,8 @@ This repository implements the main experiment of the paper (Table 1): six align
 
 ## Overview
 
+![Overall architecture of ADE](assets/overview.png)
+
 ADE compresses the weight matrix ΔW = W<sub>a</sub> − W<sub>b</sub> of every linear module of the delta with a truncated SVD and uniform 4-bit quantization (Algorithm 1 of the paper):
 
 1. **Output-aware capacity allocation (I1, Section 3.2).**
@@ -148,6 +150,7 @@ ADE/
 ├── README.md
 ├── requirements.txt
 ├── run.sh                    # demo: untuned and tuned ADE on one model
+├── assets/overview.png       # overview figure
 ├── configs/                  # Table 1 configurations (alpha = 1/16)
 ├── src/
 │   ├── main.py               # pipeline: allocation, quantization, adaptation, evaluation
